@@ -4,14 +4,19 @@ import lombok.RequiredArgsConstructor;
 import mx.edu.utez.ApiPrincipios.Repository.ClienteRepository;
 import mx.edu.utez.ApiPrincipios.dto.ClienteDTO;
 import mx.edu.utez.ApiPrincipios.model.Cliente;
+import mx.edu.utez.ApiPrincipios.service.ClienteService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@RequiredArgsConstructor
-public class ClienteServiceImpl {
+//@RequiredArgsConstructor
+public class ClienteServiceImpl implements ClienteService {
     private final ClienteRepository clienteRepository;
+
+    public ClienteServiceImpl(ClienteRepository clienteRepository){
+        this.clienteRepository = clienteRepository;
+    }
 
     @Override
     public Cliente crear(ClienteDTO dto) {

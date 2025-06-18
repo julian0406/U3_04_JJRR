@@ -4,7 +4,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import mx.edu.utez.ApiPrincipios.dto.CedeDTO;
 import mx.edu.utez.ApiPrincipios.model.Cede;
+import mx.edu.utez.ApiPrincipios.service.AlmacenService;
 import mx.edu.utez.ApiPrincipios.service.CedeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +14,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cedes")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class CedeController {
     private final CedeService cedeService;
+
+    @Autowired
+    public CedeController(CedeService cedeService){
+        this.cedeService = cedeService;
+    }
 
     @PostMapping
     public ResponseEntity<Cede> crear(@Valid @RequestBody CedeDTO dto) {

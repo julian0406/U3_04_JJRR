@@ -11,7 +11,7 @@ public class Cede {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String clave_cede;
+    private String claveCede;
     private String estado;
     private String municipio;
 
@@ -23,12 +23,12 @@ public class Cede {
         this.id = id;
     }
 
-    public String getClave_cede() {
-        return clave_cede;
+    public String getClaveCede() {
+        return claveCede;
     }
 
-    public void setClave_cede(String clave_cede) {
-        this.clave_cede = clave_cede;
+    public void setClaveCede(String claveCede) {
+        this.claveCede = claveCede;
     }
 
     public String getEstado() {

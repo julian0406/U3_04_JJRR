@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import mx.edu.utez.ApiPrincipios.dto.ClienteDTO;
 import mx.edu.utez.ApiPrincipios.model.Cliente;
 import mx.edu.utez.ApiPrincipios.service.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class ClienteController {
     private final ClienteService clienteService;
+
+    @Autowired
+    public ClienteController(ClienteService clienteService){
+        this.clienteService = clienteService;
+    }
 
     @PostMapping
     public ResponseEntity<Cliente> crear(@Valid @RequestBody ClienteDTO dto) {

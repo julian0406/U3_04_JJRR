@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import mx.edu.utez.ApiPrincipios.Repository.AlmacenRepository;
 import mx.edu.utez.ApiPrincipios.dto.AlmacenDTO;
 import mx.edu.utez.ApiPrincipios.model.Almacen;
+import mx.edu.utez.ApiPrincipios.service.AlmacenService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -12,9 +13,13 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-@RequiredArgsConstructor
-public class AlmacenServiceImpl {
+//@RequiredArgsConstructor
+public class AlmacenServiceImpl implements AlmacenService {
     private final AlmacenRepository almacenRepository;
+
+    public AlmacenServiceImpl(AlmacenRepository almacenRepository){
+        this.almacenRepository = almacenRepository;
+    }
 
     @Override
     public Almacen crear(AlmacenDTO dto) {
@@ -22,7 +27,7 @@ public class AlmacenServiceImpl {
         almacen.setFechaRegistro(dto.getFechaRegistro());
         almacen.setPrecioVenta(dto.getPrecioVenta());
         almacen.setPrecioRenta(dto.getPrecioRenta());
-        almacen.setTamaño(dto.getTamano());
+        almacen.setTamano(dto.getTamano());
 
         // Aquí puedes generar la clave usando la clave de la cede si está disponible
         String fecha = LocalDate.now().format(DateTimeFormatter.ofPattern("ddMMyyyy"));
@@ -50,7 +55,7 @@ public class AlmacenServiceImpl {
         almacen.setFechaRegistro(dto.getFechaRegistro());
         almacen.setPrecioVenta(dto.getPrecioVenta());
         almacen.setPrecioRenta(dto.getPrecioRenta());
-        almacen.setTamaño(dto.getTamano());
+        almacen.setTamano(dto.getTamano());
         return almacenRepository.save(almacen);
     }
 

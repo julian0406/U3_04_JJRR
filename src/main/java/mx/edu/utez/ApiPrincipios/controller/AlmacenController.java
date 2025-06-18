@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import mx.edu.utez.ApiPrincipios.dto.AlmacenDTO;
 import mx.edu.utez.ApiPrincipios.model.Almacen;
 import mx.edu.utez.ApiPrincipios.service.AlmacenService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/almacenes")
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class AlmacenController {
     private final AlmacenService almacenService;
+
+    @Autowired
+    public AlmacenController(AlmacenService almacenService) {
+        this.almacenService = almacenService;
+    }
 
     @PostMapping
     public ResponseEntity<Almacen> crear(@Valid @RequestBody AlmacenDTO dto) {

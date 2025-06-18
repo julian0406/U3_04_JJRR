@@ -13,9 +13,13 @@ import java.util.List;
 import java.util.Random;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class CedeServiceImpl implements CedeService {
     private final CedeRepository cedeRepository;
+
+    public CedeServiceImpl(CedeRepository cedeRepository){
+        this.cedeRepository = cedeRepository;
+    }
 
     @Override
     public Cede crear(CedeDTO dto) {

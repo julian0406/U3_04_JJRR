@@ -2,6 +2,7 @@ package mx.edu.utez.ApiPrincipios.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.util.Date;
 
@@ -22,5 +23,46 @@ public class AlmacenDTO {
     private Double precioRenta;
 
     @NotNull(message = "El tamaño es obligatorio")
-    private Boolean tamano;
+    @Pattern(regexp = "G|M|P", message = "El tamaño debe ser G, M o P")
+    private String tamano;
+
+    public String getClaveAlmacen() {
+        return claveAlmacen;
+    }
+
+    public void setClaveAlmacen(String claveAlmacen) {
+        this.claveAlmacen = claveAlmacen;
+    }
+
+    public Date getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(Date fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public Double getPrecioVenta() {
+        return precioVenta;
+    }
+
+    public void setPrecioVenta(Double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
+
+    public Double getPrecioRenta() {
+        return precioRenta;
+    }
+
+    public void setPrecioRenta(Double precioRenta) {
+        this.precioRenta = precioRenta;
+    }
+
+    public String getTamano() {
+        return tamano;
+    }
+
+    public void setTamano(String tamano) {
+        this.tamano = tamano;
+    }
 }

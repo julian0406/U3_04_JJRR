@@ -16,7 +16,7 @@ public class Almacen {
     private Date fechaRegistro;
     private Double precioVenta;
     private Double precioRenta;
-    private boolean tamaño;
+    private String tamano;
 
     public Long getId() {
         return id;
@@ -58,11 +58,11 @@ public class Almacen {
         this.precioRenta = precioRenta;
     }
 
-    public boolean isTamaño() {
-        return tamaño;
+    public String getTamano() {
+        return tamano;
     }
 
-    public void setTamaño(boolean tamaño) {
-        this.tamaño = tamaño;
+    public void setTamano(String tamano) {
+        this.tamano = tamano;
     }
 }
